@@ -1,5 +1,5 @@
 import React from 'react'
-import { navIcons, navLinks } from '#components' 
+import { navIcons, navLinks } from '#constants' 
 import dayjs from 'dayjs'
 
 
