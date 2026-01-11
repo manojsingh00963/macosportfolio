@@ -7,11 +7,13 @@ body {
   width: 100dvw;
   overflow: hidden;
   height: 100dvh;
-  background-image: url("/images/wallpaper.png");
+  background-image: url("/images/wallpaper1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  
 }
+
 
 @theme {
   --font-georama: "Georama", sans-serif;
@@ -394,3 +396,59 @@ body {
     }
   }
 }
+
+
+.shine-letter {
+    background: linear-gradient(
+        120deg,
+        #ffffff 0%,
+        #ffffff 40%,
+        #ffd700 50%,
+        #ffffff 60%,
+        #ffffff 100%
+    );
+    background-size: 200% auto;
+    background-position: 0% center;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    display: inline-block;
+    will-change: background-position, font-variation-settings;
+}
+
+
+.shine-char {
+  /* Base text color */
+  color: rgba(255, 255, 255, 0.5); 
+  
+  /* The Shine Gradient */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Smooth reset fallback */
+  transition: color 0.3s ease;
+}
+
+/* Optional: Subtle glow when hovering the container */
+#welcome:hover .shine-char {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+
+.screen{
+  width: 100%;
+  height: 84vh;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+  z-index: 1; /* Ensure it stays behind the content */
+}
+
