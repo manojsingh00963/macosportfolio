@@ -95,7 +95,7 @@ const Welcome = () => {
     }, []);
 
     return (
-        <section id="welcome" className=" screen flex flex-col items-center justify-center  text-white">
+        <section id="welcome" className="  flex flex-col items-center justify-center  text-white">
             {/* if remove the screen class name then keep min-h-screen */}
             <p ref={subtitleRef}>
                 {renderText("Hey, I'm MANic's Welcome to my.", "text-3xl font-georama", 100)}
