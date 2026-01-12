@@ -15,9 +15,11 @@ const Finder = () => {
     const openItem = (item) => { 
         if(item.fileType === 'pdf') return openWindow("resume");
         if(item.fileType === 'txt') return openWindow("txtfile", item);
+        if(item.fileType === 'img') return openWindow("imgfile", item);
+        if(item.fileType === 'fig') return openWindow("figfile", item);
         if(item.kind === 'folder') return setActiveLocation(item);
         if(item.kind === 'file') return openWindow("editor");
-        if(['fig', 'url'].includes(item.fileType) && item.href) return window.open(item.href, "_blank");
+        if(['url'].includes(item.fileType) && item.href) return window.open(item.href, "_blank");
 
         openWindow(`${item.fileType}${item.kind}`, item);
     }
@@ -56,7 +58,7 @@ return (
                     onClick={() => openItem(item)}
                 >
                     <img src={item.icon}
-                        //  className='w-4' 
+                         className=' w-12 h-12 cursor-pointer ' 
                         alt={item.name} />
                     <p className='text-sm font-medium truncate' >{item.name}</p>
                 </li>

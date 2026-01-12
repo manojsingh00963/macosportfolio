@@ -247,7 +247,7 @@ const WORK_LOCATION = {
         },
         {
           id: 2,
-          name: "nike.com",
+          name: "Nike Project Demo",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
@@ -300,7 +300,7 @@ const WORK_LOCATION = {
         },
         {
           id: 2,
-          name: "ai-resume-analyzer.com",
+          name: "AI Resume Analyzer Demo",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
@@ -353,7 +353,7 @@ const WORK_LOCATION = {
         },
         {
           id: 2,
-          name: "food-delivery-app.com",
+          name: "Food Delivery App Demo",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
@@ -515,6 +515,7 @@ const WINDOW_CONFIG = {
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  figfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
