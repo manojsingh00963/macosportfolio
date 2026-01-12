@@ -452,3 +452,133 @@ body {
   z-index: 1; /* Ensure it stays behind the content */
 }
 
+
+
+
+.window {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.window.maximized {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.window.minimized {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.window {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Resize handles */
+.resize-handle {
+  position: absolute;
+  z-index: 50;
+}
+
+.resize-handle.right {
+  right: 0;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.resize-handle.bottom {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8px;
+  cursor: ns-resize;
+}
+
+.resize-handle.corner {
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  cursor: nwse-resize;
+}
+
+
+/*  =================Termial css =================== */
+
+
+.terminal-font {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Command */
+.command-line {
+  margin-bottom: 8px;
+  color: #d1d5db;
+}
+
+.prompt {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: #22c55e;
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Progress */
+.progress-wrap {
+  height: 3px;
+  background: #1f2933;
+  border-radius: 2px;
+  margin: 6px 0 14px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  transition: width 0.25s ease;
+}
+
+/* Stack rows */
+.stack-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stack-row:hover {
+  background: rgba(34, 197, 94, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.25);
+}
+
+.stack-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  color: #9ca3af;
+}
+
+/* Footer */
+.footnote {
+  ma
+

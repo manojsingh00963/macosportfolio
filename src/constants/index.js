@@ -492,15 +492,29 @@ export const locations = {
 
 const INITIAL_Z_INDEX = 1000;
 
+
+const baseWindow = {
+  isOpen: false,
+  isMinimized: false,
+  isMaximized: false,
+  zIndex: INITIAL_Z_INDEX,
+  data: null,
+  position: { x: 100, y: 100 },
+  size: { width: 500, height: 400 },
+};
+
+
+
+
 const WINDOW_CONFIG = {
-  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
