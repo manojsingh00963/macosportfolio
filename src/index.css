@@ -116,7 +116,7 @@ body {
     }
   }
 
-  #window-header {
+  .window-header {
     @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
   }
 
@@ -301,7 +301,7 @@ body {
   #resume {
     @apply w-fit h-fit absolute top-16 left-7/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
-    #window-header {
+    .window-header {
       h2 {
         @apply font-bold text-sm text-center flex-1;
       }
@@ -363,7 +363,7 @@ body {
   #imgfile {
     @apply w-xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
-    #window-header {
+    .window-header {
       p {
         @apply font-bold text-[#5f6266];
       }
@@ -578,7 +578,20 @@ body {
   color: #9ca3af;
 }
 
-/* Footer */
-.footnote {
-  ma
 
+.window-header {
+  user-select: none;
+  cursor: grab;
+}
+.window-header:active {
+  cursor: grabbing;
+}
+
+/* Smooth macOS scrolling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 10px;
+}

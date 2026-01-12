@@ -63,23 +63,29 @@ const WindowWrapper = (Component, windowKey) => {
     }, [isMinimized]);
 
     /* ---------- DRAG ---------- */
+    /* ---------- DRAG ---------- */
     useGSAP(() => {
       const el = ref.current;
       if (!el || !isOpen || isMaximized) return;
 
-      // Kill old draggable
+      // kill old draggable
       dragRef.current?.kill();
+      
+      const header = el.querySelector('.window-header');
+      if (!header) return;
 
       dragRef.current = Draggable.create(el, {
-        type: 'x,y', // GPU friendly
-        handle: '#window-header',
+        type: 'x,y',
+        trigger: header,       // ✅ scoped handle
         inertia: false,
         autoScroll: false,
+        dragResistance:-1,
         onPress: () => focusWindow(windowKey),
       })[0];
 
       return () => dragRef.current?.kill();
     }, [isOpen, isMaximized]);
+
 
     /* ---------- MAXIMIZE ---------- */
     useLayoutEffect(() => {
@@ -164,3 +170,75 @@ const WindowWrapper = (Component, windowKey) => {
 };
 
 export default WindowWrapper;
+
+
+
+// import React, { useLayoutEffect, useRef } from 'react'
+// import gsap from 'gsap'
+// import { useGSAP } from '@gsap/react'
+// import { Draggable } from 'gsap/Draggable'
+// import useWindowStore from '#store/window.js'
+
+// // ✅ REGISTER PLUGIN (IMPORTANT)
+// gsap.registerPlugin(Draggable)
+
+// const WindowWrapper = (Component, windowKey) => {
+//   const Wrapped = (props) => {
+//     const { focusWindow, windows } = useWindowStore()
+//     const { isOpen, zIndex } = windows[windowKey]
+
+//     const ref = useRef(null)
+
+//     // OPEN / CLOSE ANIMATION
+//     useGSAP(() => {
+//       const el = ref.current
+//       if (!el || !isOpen) return
+
+//       el.style.display = 'block'
+
+//       gsap.fromTo(
+//         el,
+//         { scale: 0.8, opacity: 0, y: 40 },
+//         { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
+//       )
+//     }, [isOpen])
+
+//     // DRAGGABLE
+//     useGSAP(() => {
+//       const el = ref.current
+//       if (!el || !isOpen) return
+
+//       const draggable = Draggable.create(el, {
+//         handle: '.window-header', // ✅ OPTIONAL BUT RECOMMENDED
+//         onPress: () => focusWindow(windowKey),
+//       })
+
+//       return () => {
+//         draggable[0]?.kill()
+//       }
+//     }, [isOpen])
+
+//     // DISPLAY CONTROL
+//     useLayoutEffect(() => {
+//       const el = ref.current
+//       if (!el) return
+//       el.style.display = isOpen ? 'block' : 'none'
+//     }, [isOpen])
+
+//     return (
+//       <section
+//         id={windowKey}
+//         ref={ref}
+//         style={{ zIndex }}
+//         className="absolute"
+//       >
+//         <Component {...props} />
+//       </section>
+//     )
+//   }
+
+//   Wrapped.displayName = `WindowWrapper(${Component.displayName || Component.name || 'Component'})`
+//   return Wrapped
+// }
+
+// export default WindowWrapper
