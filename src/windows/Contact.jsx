@@ -71,7 +71,7 @@ const Contact = () => {
                     {/* Profile */}
                     <div className="flex items-center gap-4">
                         <img
-                            src="/images/adrian.jpg"
+                            src="/images/developermanics.png"
                             alt="Manoj Singh"
                             className="w-20 h-20 rounded-2xl border border-white/20 shadow-xl object-cover"
                         />

@@ -79,7 +79,7 @@ const WindowWrapper = (Component, windowKey) => {
         trigger: header,       // ✅ scoped handle
         inertia: false,
         autoScroll: false,
-        dragResistance:-1,
+        dragResistance:-1.5,
         onPress: () => focusWindow(windowKey),
       })[0];
 
@@ -156,9 +156,9 @@ const WindowWrapper = (Component, windowKey) => {
 
         {!isMaximized && (
           <>
-            <span className="resize-handle right" onMouseDown={(e) => startResize(e, 'right')} />
-            <span className="resize-handle bottom" onMouseDown={(e) => startResize(e, 'bottom')} />
-            <span className="resize-handle corner" onMouseDown={(e) => startResize(e, 'right bottom')} />
+            <span className="resize-handle z-10 right" onMouseDown={(e) => startResize(e, 'right')} />
+            <span className="resize-handle z-10 bottom" onMouseDown={(e) => startResize(e, 'bottom')} />
+            <span className="resize-handle z-10 corner" onMouseDown={(e) => startResize(e, 'right bottom')} />
           </>
         )}
       </section>

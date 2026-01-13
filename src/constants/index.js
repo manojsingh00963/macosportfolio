@@ -43,34 +43,58 @@ const dockApps = [
     canOpen: true,
   },
   {
-    id: "safari",
-    name: "Articles", // was "Safari"
-    icon: "safari.png",
-    canOpen: true,
-  },
-  {
-    id: "photos",
-    name: "Gallery", // was "Photos"
-    icon: "photos.png",
-    canOpen: true,
-  },
-  {
-    id: "contact",
-    name: "Contact", // or "Get in touch"
-    icon: "contact.png",
-    canOpen: true,
-  },
-  {
     id: "terminal",
     name: "Skills", // was "Terminal"
     icon: "terminal.png",
     canOpen: true,
   },
   {
+    id: "safari",
+    name: "Articles", // was "Safari"
+    icon: "safari.png",
+    canOpen: true,
+  },
+  // {
+  //   id: "map",
+  //   name: "Map", 
+  //   icon: "map.png",
+  //   canOpen: true,
+  // },
+  {
+    id: "photos",
+    name: "Gallery",
+    icon: "photos.png",
+    canOpen: true,
+  },
+  // {
+  //   id: "code",
+  //   name: "Code",
+  //   icon: "code.png",
+  //   canOpen: true,
+  // },
+  // {
+  //   id: "music",
+  //   name: "Music",
+  //   icon: "music.png",
+  //   canOpen: true,
+  // },
+  {
+    id: "contact",
+    name: "Contact", // or "Get in touch"
+    icon: "contact.png",
+    canOpen: true,
+  },
+  // {
+  //   id: "setting",
+  //   name: "Setting", // was "Terminal"
+  //   icon: "setting.png",
+  //   canOpen: true,
+  // },
+  {
     id: "trash",
-    name: "Archive", // was "Trash"
+    name: "Trash",
     icon: "trash.png",
-    canOpen: false,
+    canOpen: true,
   },
 ];
 
@@ -114,7 +138,7 @@ const techStack = [
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: ["Node.js", "Express", "NestJS", "django"],
   },
   {
     category: "Database",
@@ -131,29 +155,29 @@ const socials = [
     id: 1,
     text: "Github",
     icon: "/icons/github.svg",
-    bg: "#f4656b",
-    link: "https://github.com/JavaScript-Mastery-Pro",
+    bg: "#0D1117",
+    link: "https://github.com/manojsingh00963",
   },
   {
     id: 2,
     text: "Platform",
     icon: "/icons/atom.svg",
-    bg: "#4bcb63",
-    link: "https://jsmastery.com/",
+    bg: "#3c027f",
+    link: "https://devmanics.com/",
   },
   {
     id: 3,
     text: "Twitter/X",
     icon: "/icons/twitter.svg",
-    bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
+    bg: "#0D1117",
+    link: "https://x.com/manojsingh10101",
   },
   {
     id: 4,
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
-    bg: "#05b6f6",
-    link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+    bg: "#007bff",
+    link: "https://www.linkedin.com/in/manoj-singh-4a4131280/",
   },
 ];
 
@@ -224,16 +248,64 @@ const WORK_LOCATION = {
   children: [
     // ▶ Project 1
     {
-      id: 5,
-      name: "Nike Ecommerce Website Application",
+      id: 4,
+      name: "ICODESAVE",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5", // icon position inside Finder
-      windowPosition: "top-[5vh] left-5", // optional: Finder window position
+      windowPosition: "top-[5vh] left-11", // optional: Finder window position
       children: [
         {
           id: 1,
-          name: "Nike Project.txt",
+          name: " Project.txt",
+          icon: "/images/txt.png",
+          kind: "file",
+          fileType: "txt",
+          position: "top-10 left-10",
+          description: [
+            "A note book for saving note, i made it for saving my some important notes concepts and mainly important code, and some code snipptes which i would be need again in the future so that i made this app it's amagazing feel free to use it",
+          ],
+        },
+        {
+          id: 2,
+          name: " Project Demo",
+          icon: "/images/safari.png",
+          kind: "file",
+          fileType: "url",
+          href: "https://icodesave.vercel.app/",
+          position: "top-10 right-40",
+        },
+        {
+          id: 4,
+          name: "nike.png",
+          icon: "/images/image.png",
+          kind: "file",
+          fileType: "img",
+          position: "top-52 right-80",
+          imageUrl: "/images/project-1.png",
+        },
+        {
+          id: 5,
+          name: "Design.fig",
+          icon: "/images/plain.png",
+          kind: "file",
+          fileType: "fig",
+          href: "https://icodesave.vercel.app/",
+          position: "top-52 right-20",
+        },
+      ],
+    },
+    {
+      id: 5,
+      name: " Ecommerce Website Application",
+      icon: "/images/folder.png",
+      kind: "folder",
+      position: "top-20 left-40", // icon position inside Finder
+      windowPosition: "top-[5vh] left-25", // optional: Finder window position
+      children: [
+        {
+          id: 1,
+          name: " Project.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
@@ -247,7 +319,7 @@ const WORK_LOCATION = {
         },
         {
           id: 2,
-          name: "Nike Project Demo",
+          name: " Project Demo",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
@@ -282,7 +354,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-52 right-80",
-      windowPosition: "top-[20vh] left-7",
+      windowPosition: "top-[20vh] left-5",
       children: [
         {
           id: 1,
@@ -335,7 +407,7 @@ const WORK_LOCATION = {
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-80",
-      windowPosition: "top-[33vh] left-7",
+      windowPosition: "top-[33vh] left-5",
       children: [
         {
           id: 1,
@@ -397,7 +469,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-10 left-5",
-      imageUrl: "/images/adrian.jpg",
+      imageUrl: "/images/developermanics.png",
     },
     {
       id: 2,
@@ -406,7 +478,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-28 right-72",
-      imageUrl: "/images/adrian-2.jpg",
+      imageUrl: "/images/manics-1.jpg",
     },
     {
       id: 3,
@@ -415,7 +487,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-52 left-80",
-      imageUrl: "/images/adrian-3.jpeg",
+      imageUrl: "/images/manics-2.jpeg",
     },
     {
       id: 4,
@@ -425,9 +497,9 @@ const ABOUT_LOCATION = {
       fileType: "txt",
       position: "top-60 left-5",
       subtitle: "Meet the Developer Behind the Code",
-      image: "/images/adrian.jpg",
+      image: "/images/developermanics.png",
       description: [
-        "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
+        "Hey! I’m MANic's 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
         "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
         "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
         "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
@@ -445,7 +517,7 @@ const RESUME_LOCATION = {
   children: [
     {
       id: 1,
-      name: "Resume.pdf",
+      name: "Manicsresume.pdf",
       icon: "/images/pdf.png",
       kind: "file",
       fileType: "pdf",
@@ -519,3 +591,39 @@ const WINDOW_CONFIG = {
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
+
+
+
+
+
+export const MAP_LOCATION = {
+  id: 5,
+  type: "map",
+  name: "Map",
+  icon: "/icons/map.svg",
+  kind: "app",
+  center: { lat: 30.3165, lng: 78.0322 }, // Uttarakhand (example)
+  places: [
+    {
+      id: 1,
+      name: "Home",
+      position: "top-32 left-40",
+      description: "Where ideas start",
+      icon: "/icons/pin-red.svg",
+    },
+    {
+      id: 2,
+      name: "College",
+      position: "top-52 left-72",
+      description: "BCA – IGNOU",
+      icon: "/icons/pin-blue.svg",
+    },
+    {
+      id: 3,
+      name: "Projects",
+      position: "top-20 left-96",
+      description: "My development work",
+      icon: "/icons/pin-green.svg",
+    },
+  ],
+};
