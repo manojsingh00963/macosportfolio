@@ -5,7 +5,7 @@ import { Trash2, RotateCcw } from 'lucide-react';
 import { locations } from '#constants';
 
 const Trash = () => {
-  const [items, setItems] = useState(locations.children || []);
+  const [items, setItems] = useState(locations.trash.children || []);
 
   const emptyTrash = () => {
     setItems([]);

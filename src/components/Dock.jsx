@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import useWindowStore from '#store/window.js';
 
 const Dock = () => {
+    
     const dockRef = useRef(null);
     const { openWindow, closeWindow, focusWindow, windows } = useWindowStore();
 
@@ -69,6 +70,7 @@ const Dock = () => {
 
         console.log('Window state:', win);
     };
+    
 
 
     return (

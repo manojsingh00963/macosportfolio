@@ -71,7 +71,7 @@
 
 //       // kill old draggable
 //       dragRef.current?.kill();
-      
+
 //       const header = el.querySelector('.window-header');
 //       if (!header) return;
 
@@ -174,72 +174,240 @@
 
 
 
-import React, { useLayoutEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { Draggable } from 'gsap/Draggable'
-import useWindowStore from '#store/window.js'
+// import React, { useLayoutEffect, useRef } from 'react'
+// import gsap from 'gsap'
+// import { useGSAP } from '@gsap/react'
+// import { Draggable } from 'gsap/Draggable'
+// import useWindowStore from '#store/window.js'
 
-// ✅ REGISTER PLUGIN (IMPORTANT)
-gsap.registerPlugin(Draggable)
+// // ✅ REGISTER PLUGIN (IMPORTANT)
+// gsap.registerPlugin(Draggable)
+
+// const WindowWrapper = (Component, windowKey) => {
+//   const Wrapped = (props) => {
+//     const { focusWindow, windows } = useWindowStore()
+//     const { isOpen, zIndex } = windows[windowKey]
+
+//     const ref = useRef(null)
+
+//     // OPEN / CLOSE ANIMATION
+//     useGSAP(() => {
+//       const el = ref.current
+//       if (!el || !isOpen) return
+
+//       el.style.display = 'block'
+
+//       gsap.fromTo(
+//         el,
+//         { scale: 0.8, opacity: 0, y: 40 },
+//         { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
+//       )
+//     }, [isOpen])
+
+//     // DRAGGABLE
+//     useGSAP(() => {
+//       const el = ref.current
+//       if (!el || !isOpen) return
+
+//       const draggable = Draggable.create(el, {
+//         handle: '.window-header', // ✅ OPTIONAL BUT RECOMMENDED
+//         onPress: () => focusWindow(windowKey),
+//       })
+
+//       return () => {
+//         draggable[0]?.kill()
+//       }
+//     }, [isOpen])
+
+//     // DISPLAY CONTROL
+//     useLayoutEffect(() => {
+//       const el = ref.current
+//       if (!el) return
+//       el.style.display = isOpen ? 'block' : 'none'
+//     }, [isOpen])
+
+//     return (
+//       <section
+//         id={windowKey}
+//         ref={ref}
+//         style={{ zIndex }}
+//         className="absolute"
+//       >
+//         <Component {...props} />
+//       </section>
+//     )
+//   }
+
+//   Wrapped.displayName = `WindowWrapper(${Component.displayName || Component.name || 'Component'})`
+//   return Wrapped
+// }
+
+// export default WindowWrapper
+
+
+import React, { useLayoutEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { Draggable } from 'gsap/Draggable';
+import useWindowStore from '#store/window.js';
+
+gsap.registerPlugin(Draggable);
 
 const WindowWrapper = (Component, windowKey) => {
   const Wrapped = (props) => {
-    const { focusWindow, windows } = useWindowStore()
-    const { isOpen, zIndex } = windows[windowKey]
+    const { focusWindow, windows } = useWindowStore();
+    const { isOpen, zIndex, isMaximized, isMinimized } = windows[windowKey];
 
-    const ref = useRef(null)
+    const ref = useRef(null);
+    const draggableInstance = useRef(null);
 
-    // OPEN / CLOSE ANIMATION
+    // HANDLE INITIAL OPEN/CLOSE
     useGSAP(() => {
-      const el = ref.current
-      if (!el || !isOpen) return
-
-      el.style.display = 'block'
+      const el = ref.current;
+      if (!el || !isOpen) return;
 
       gsap.fromTo(
         el,
         { scale: 0.8, opacity: 0, y: 40 },
-        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }
-      )
-    }, [isOpen])
+        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.7)' }
+      );
+    }, { dependencies: [isOpen], revertOnUpdate: false });
 
-    // DRAGGABLE
+    // HANDLE MAXIMIZE / RESTORE
     useGSAP(() => {
-      const el = ref.current
-      if (!el || !isOpen) return
+      const el = ref.current;
+      if (!el || !isOpen) return;
 
-      const draggable = Draggable.create(el, {
-        handle: '.window-header', // ✅ OPTIONAL BUT RECOMMENDED
+      if (isMaximized) {
+        // Disable dragging when maximized
+        if (draggableInstance.current) draggableInstance.current[0].disable();
+
+        gsap.to(el, {
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          x: 0, // Reset GSAP transforms
+          y: 0,
+          duration: 0.4,
+          ease: 'power3.inOut',
+          borderRadius: 0,
+        });
+      } else {
+        // Re-enable dragging when restored
+        if (draggableInstance.current) draggableInstance.current[0].enable();
+
+        gsap.to(el, {
+          width: 'auto', // Or your default width from config
+          height: 'auto',
+          duration: 0.4,
+          ease: 'power3.out',
+          borderRadius: '8px', // Match your UI style
+        });
+      }
+    }, [isMaximized]);
+
+    // HANDLE MINIMIZE
+    useGSAP(() => {
+      const el = ref.current;
+      if (!el) return;
+
+      if (isMinimized) {
+        gsap.to(el, {
+          scale: 0.5,
+          opacity: 0,
+          y: 100,
+          duration: 0.3,
+          ease: 'power2.in',
+          onComplete: () => (el.style.display = 'none'),
+        });
+      } else if (isOpen) {
+        el.style.display = 'block';
+        gsap.to(el, {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      }
+    }, [isMinimized]);
+
+    // DRAGGABLE INITIALIZATION
+    useGSAP(() => {
+      const el = ref.current;
+      if (!el || !isOpen) return;
+
+      draggableInstance.current = Draggable.create(el, {
+        handle: '.window-header',
         onPress: () => focusWindow(windowKey),
-      })
+        bounds: "body", // Keeps window inside viewport
+      });
 
       return () => {
-        draggable[0]?.kill()
-      }
-    }, [isOpen])
+        if (draggableInstance.current) draggableInstance.current[0].kill();
+      };
+    }, [isOpen]);
 
-    // DISPLAY CONTROL
     useLayoutEffect(() => {
-      const el = ref.current
-      if (!el) return
-      el.style.display = isOpen ? 'block' : 'none'
-    }, [isOpen])
+      const el = ref.current;
+      if (!el) return;
+      el.style.display = isOpen && !isMinimized ? 'block' : 'none';
+    }, [isOpen, isMinimized]);
+
+    // Inside WindowWrapper.jsx
+
+    // HANDLE MAXIMIZE / RESTORE
+    useGSAP(() => {
+      const el = ref.current;
+      if (!el || !isOpen) return;
+
+      if (isMaximized) {
+        // Disable dragging
+        if (draggableInstance.current) draggableInstance.current[0].disable();
+
+        gsap.to(el, {
+          top: 0,
+          left: 0,
+          x: 0, // Kill the Draggable transform offset
+          y: 0,
+          width: "100%",
+          height: "100%",
+          duration: 0.4,
+          ease: "power3.inOut"
+        });
+      } else {
+        // Enable dragging
+        if (draggableInstance.current) draggableInstance.current[0].enable();
+
+        gsap.to(el, {
+          width: "auto", // Returns to the Gallery component's internal w-[60vw]
+          height: "auto",
+          duration: 0.4,
+          ease: "power3.out"
+        });
+      }
+    }, [isMaximized]);
 
     return (
+      // Inside WindowWrapper return
       <section
         id={windowKey}
         ref={ref}
-        style={{ zIndex }}
-        className="absolute"
+        style={{
+          zIndex,
+          position: 'absolute',
+          top: isMaximized ? 0 : '10%', // Optional: initial offset
+          left: isMaximized ? 0 : '10%',
+        }}
+        className={isMaximized ? 'w-screen h-screen' : ''}
       >
         <Component {...props} />
       </section>
-    )
-  }
+    );
+  };
 
-  Wrapped.displayName = `WindowWrapper(${Component.displayName || Component.name || 'Component'})`
-  return Wrapped
-}
+  return Wrapped;
+};
 
-export default WindowWrapper
+export default WindowWrapper;

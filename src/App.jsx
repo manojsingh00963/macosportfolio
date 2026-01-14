@@ -27,7 +27,7 @@ const App = () => {
     <Contact/>
 
     {/* <Map/> */}
-    {/* <Gallery/> */}
+    <Gallery/>
     {/* <Trash/> */}
 
     <Music/>

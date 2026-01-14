@@ -209,7 +209,7 @@ body {
       }
     }
   }
-  #music {
+#music {
   @apply w-[720px] absolute top-32 left-1/12 
          bg-white/10 backdrop-blur-2xl 
          shadow-2xl drop-shadow-2xl 
@@ -226,6 +226,7 @@ body {
       @apply font-semibold text-sm text-center w-full text-white;
     }
   }
+  
 
   /* ---------- Main Layout ---------- */
   .music-body {
@@ -332,7 +333,49 @@ body {
       @apply w-32 accent-white cursor-pointer;
     }
   }
+
+
+  /* after /////////////// */
+
+
+  .mini {
+  @apply w-[360px];
+
+  .sidebar {
+    @apply hidden;
+  }
+
+  .track-info img {
+    @apply w-20 h-20;
+  }
 }
+
+.music-window {
+  @apply w-xl absolute top-32 left-1/12 rounded-xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.player {
+  @apply p-5 flex flex-col gap-4;
+}
+
+.controls button {
+  @apply text-white hover:text-[#00A154] transition-colors;
+}
+
+.waveform {
+  @apply rounded-md overflow-hidden;
+}
+
+.floating-mini-player {
+  @apply backdrop-blur-md bg-white/20 shadow-xl rounded-xl p-3 flex items-center gap-3;
+}
+
+.lyrics-panel {
+  @apply backdrop-blur-lg bg-white/20 rounded-xl shadow-xl p-4 text-white;
+}
+
+}
+
 
   #contact {
     @apply max-w-2xl absolute top-60 left-5/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
@@ -363,7 +406,7 @@ body {
   }
 
   #photos {
-    @apply max-w-3xl absolute top-96 left-1/2 -translate-y-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply max-w-3xl absolute overflow-auto top-96 left-1/2 -translate-y-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl ;
 
     .sidebar {
       @apply w-3/12 flex-none bg-gray-50 border-r border-gray-200 flex flex-col p-5;
