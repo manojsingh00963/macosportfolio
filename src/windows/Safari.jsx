@@ -8,7 +8,7 @@ const Safari = () => {
   return (
     <>
       <div className="window-header">
-        <WindowControls target="Safari" />
+        <WindowControls target="safari" />
 
         <PanelLeft className='ml-10 icon' />
         <div className="flex items-center gap-1 ml-5">

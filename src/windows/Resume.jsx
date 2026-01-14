@@ -30,17 +30,20 @@ const Resume = () => {
         </a>
       </div>
 
-      <Document
-        file="/files/Manicsresume.pdf"
-        loading={<p>Loading PDF…</p>}
-        error={<p>Failed to load PDF.</p>}
-      >
-        <Page
-          pageNumber={1}
-          renderTextLayer={true}
-          renderAnnotationLayer={true}
-        />
-      </Document>
+     
+        <Document
+          file="/files/Manicsresume.pdf"
+          loading={<p>Loading PDF…</p>}
+          error={<p>Failed to load PDF.</p>}
+
+        >
+          <Page
+            pageNumber={1}
+            // scale={0.8}
+            renderTextLayer={true}
+            renderAnnotationLayer={true}
+          />
+        </Document>
     </>
   );
 };

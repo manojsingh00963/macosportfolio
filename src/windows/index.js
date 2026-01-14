@@ -10,4 +10,5 @@ import Gallery from "./Gallery";
 import Trash from "./Trash";
 import Map from "./Map"
 
-    export {Terminal, Safari, Resume, Finder, Text, Image, Figma, Contact, Gallery, Trash, Map};
+import Music from "./Music";
+    export {Terminal, Safari, Resume, Finder, Text, Image, Figma, Contact, Gallery, Trash, Map, Music};

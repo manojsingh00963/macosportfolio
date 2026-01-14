@@ -72,12 +72,12 @@ const dockApps = [
   //   icon: "code.png",
   //   canOpen: true,
   // },
-  // {
-  //   id: "music",
-  //   name: "Music",
-  //   icon: "music.png",
-  //   canOpen: true,
-  // },
+  {
+    id: "music",
+    name: "Music",
+    icon: "music.png",
+    canOpen: true,
+  },
   {
     id: "contact",
     name: "Contact", // or "Get in touch"
@@ -86,7 +86,7 @@ const dockApps = [
   },
   // {
   //   id: "setting",
-  //   name: "Setting", // was "Terminal"
+  //   name: "Setting", 
   //   icon: "setting.png",
   //   canOpen: true,
   // },
@@ -579,15 +579,19 @@ const baseWindow = {
 
 
 const WINDOW_CONFIG = {
-  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
-  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
-  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
-  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
-  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
-  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
-  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
-  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
-  figfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null,baseWindow },
+  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  figfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  music: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  gallery: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  map: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  Trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };

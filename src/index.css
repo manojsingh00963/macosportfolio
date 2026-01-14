@@ -209,6 +209,130 @@ body {
       }
     }
   }
+  #music {
+  @apply w-[720px] absolute top-32 left-1/12 
+         bg-white/10 backdrop-blur-2xl 
+         shadow-2xl drop-shadow-2xl 
+         rounded-xl overflow-hidden 
+         border border-white/20;
+
+  /* ---------- Header ---------- */
+  .window-header {
+    @apply flex items-center px-4 py-2 
+           border-b border-white/10 
+           bg-white/5;
+
+    h2 {
+      @apply font-semibold text-sm text-center w-full text-white;
+    }
+  }
+
+  /* ---------- Main Layout ---------- */
+  .music-body {
+    @apply flex h-[420px] text-white;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    @apply w-56 p-4 
+           border-r border-white/10 
+           bg-white/5;
+
+    h3 {
+      @apply text-xs uppercase tracking-wide 
+             text-white/50 mb-3;
+    }
+
+    ul {
+      @apply space-y-2;
+
+      li {
+        @apply text-sm cursor-pointer 
+               text-white/70 
+               hover:text-white 
+               transition;
+
+        &.active {
+          @apply text-white font-medium;
+        }
+      }
+    }
+  }
+
+  /* ---------- Player Section ---------- */
+  .player {
+    @apply flex-1 p-6 flex flex-col;
+  }
+
+  /* ---------- Track Info ---------- */
+  .track-info {
+    @apply flex items-center gap-6;
+
+    img {
+      @apply w-32 h-32 rounded-xl 
+             object-cover shadow-xl;
+    }
+
+    .meta {
+      h3 {
+        @apply text-xl font-semibold;
+      }
+
+      p {
+        @apply text-sm text-white/60;
+      }
+    }
+  }
+
+  /* ---------- Controls ---------- */
+  .controls {
+    @apply mt-8;
+
+    .buttons {
+      @apply flex items-center justify-center gap-6;
+
+      button {
+        @apply text-white/80 
+               hover:text-white 
+               transition;
+      }
+
+      .play-btn {
+        @apply w-14 h-14 rounded-full 
+               bg-white text-black 
+               flex items-center justify-center 
+               shadow-lg 
+               hover:scale-105 transition;
+      }
+    }
+  }
+
+  /* ---------- Progress Bar ---------- */
+  .progress {
+    @apply mt-4;
+
+    .bar {
+      @apply h-1 bg-white/20 rounded;
+
+      .fill {
+        @apply h-1 bg-white rounded;
+      }
+    }
+  }
+
+  /* ---------- Volume ---------- */
+  .volume {
+    @apply flex items-center gap-3 mt-4;
+
+    svg {
+      @apply w-4 text-white/70;
+    }
+
+    input[type='range'] {
+      @apply w-32 accent-white cursor-pointer;
+    }
+  }
+}
 
   #contact {
     @apply max-w-2xl absolute top-60 left-5/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
@@ -595,3 +719,5 @@ body {
   background: rgba(0,0,0,0.15);
   border-radius: 10px;
 }
+
+
