@@ -9,9 +9,9 @@ const WindowControls = ({ target }) => {
 
   return (
     <div id="window-controls">
-      <div className="close w-4 h-4 cursor-pointer " onClick={() => closeWindow(target)} />
-      <div className="minimize w-4 h-4 cursor-pointer " onClick={() => minimizeWindow(target)} />
-      <div className="maximize w-4 h-4 cursor-pointercursor-pointer  " onClick={() => toggleMaximize(target)} />
+      <div className="close z-10 w-4 h-4 cursor-pointer " onClick={() => closeWindow(target)} />
+      <div className="minimize z-10 w-4 h-4 cursor-pointer " onClick={() => minimizeWindow(target)} />
+      <div className="maximize z-10 w-4 h-4 cursor-pointer  " onClick={() => toggleMaximize(target)} />
     </div>
   );
 };
