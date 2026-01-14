@@ -212,47 +212,47 @@ const photosLinks = [
 const gallery = [
   {
     id: 1,
-    img: "/public/gallery/0.jpeg",
+    img: "/gallery/0.jpeg",
   },
   {
     id: 2,
-    img: "/public/gallery/1.jpeg",
+    img: "/gallery/1.jpeg",
   },
   {
     id: 3,
-    img: "/public/gallery/2.jpeg",
+    img: "/gallery/2.jpeg",
   },
   {
     id: 4,
-    img: "/public/gallery/3.jpeg",
+    img: "/gallery/3.jpeg",
   },
   {
     id: 5,
-    img: "/public/gallery/4.jpeg",
+    img: "/gallery/4.jpeg",
   },
   {
     id: 6,
-    img: "/public/gallery/5.jpg",
+    img: "/gallery/5.jpg",
   },
   {
     id: 7,
-    img: "/public/gallery/6.jpg",
+    img: "/gallery/6.jpg",
   },
   {
     id: 8,
-    img: "/public/gallery/7.jpg",
+    img: "/gallery/7.jpg",
   },
   {
     id: 9,
-    img: "/public/gallery/8.jpg",
+    img: "/gallery/8.jpg",
   },
   {
     id: 10,
-    img: "/public/gallery/9.jpg",
+    img: "/gallery/9.jpg",
   },
   {
     id: 11,
-    img: "/public/gallery/10.jpg",
+    img: "/gallery/10.jpg",
   },
 ];
 

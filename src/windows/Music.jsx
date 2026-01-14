@@ -225,7 +225,7 @@ const Music = () => {
                 onLoadedMetadata={updateProgress}
                 onEnded={handleEnd}
             />
-    
+
 
         </div>
     )
