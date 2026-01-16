@@ -1,10 +1,11 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { EncryptedShinyText } from './ShinyText';
 
 const FONT_WEIGHTS = {
     // Matches the 100 base weight you passed in renderText for subtitle
-    subtitle: { min: 100, max: 400, default: 100 }, 
+    subtitle: { min: 100, max: 400, default: 100 },
     title: { min: 400, max: 900, default: 400 }
 }
 
@@ -38,9 +39,9 @@ const setupTextHover = (container, type) => {
             const rect = letter.getBoundingClientRect();
             const center = rect.left - left + rect.width / 2;
             const distance = Math.abs(mouseX - center);
-            
+
             // Calculate intensity (1 at center, 0 far away)
-            const intensity = Math.exp(-(distance ** 2) / 1000); 
+            const intensity = Math.exp(-(distance ** 2) / 1000);
 
             // Animate Weight
             gsap.to(letter, {
@@ -94,8 +95,34 @@ const Welcome = () => {
         };
     }, []);
 
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+    // Set a timer for 10 seconds (10000ms)
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 20000);
+
+    // Cleanup timer if the component unmounts before 10s
+    return () => clearTimeout(timer);
+  }, []);
+
+
     return (
         <section id="welcome" className="  flex flex-col items-center justify-center  text-white">
+           
+           {isVisible && ( <EncryptedShinyText
+      text="✨Good Thing's Take Time🌟"
+      revealDelayMs={150}
+      flipDelayMs={100}
+      // Shiny props
+      speed={3}
+      color="#4a4a4a"
+      shineColor="#00ff00" // Matrix Green shine
+      className="text-xl absolute top-60 z-30 italic font-bold"
+    />
+           )}
+
             {/* if remove the screen class name then keep min-h-screen */}
             <p ref={subtitleRef}>
                 {renderText("Hey, I'm Developer MANic's Welcome to my.", "text-3xl font-georama", 100)}
