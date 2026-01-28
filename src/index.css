@@ -44,6 +44,10 @@ body {
   nav {
     @apply flex justify-between items-center bg-white/50 backdrop-blur-3xl p-2 px-5 select-none;
 
+    img {
+      @apply cursor-pointer ;
+    }
+    
     div {
       @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
 
@@ -877,4 +881,7 @@ body {
   }
 
 }
+
+
+
 

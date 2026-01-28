@@ -12,7 +12,7 @@ const Navbar = () => {
         <div>
             <img src="/images/logo.svg" alt="logo.svg" />
             <p className="font-bold">
-                MANic's Portfolio
+                 MANic's 
             </p>
             <ul>
                 {navLinks.map(({id, name, type})=>(
@@ -25,9 +25,9 @@ const Navbar = () => {
         
         <div>
             <ul>
-                {navIcons.map(({id, img,})=>(
+                {navIcons.map(({id, img, type})=>(
                     <li key={id}>
-                        <img src={img} alt={`icon-${id}`} />
+                        <img src={img} onClick={()=>openWindow(type)} alt={`icon-${id}`} />
                     </li>
                 ))}
             </ul>

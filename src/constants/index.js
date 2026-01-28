@@ -20,18 +20,22 @@ const navIcons = [
   {
     id: 1,
     img: "/icons/wifi.svg",
+    type: "wifi",
   },
   {
     id: 2,
     img: "/icons/search.svg",
+    type: "search",
   },
   {
     id: 3,
     img: "/icons/user.svg",
+    type: "user",
   },
   {
     id: 4,
     img: "/icons/mode.svg",
+    type: "setting",
   },
 ];
 
@@ -104,24 +108,74 @@ const blogPosts = [
     date: "Sep 2, 2025",
     title:
       "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-    image: "/images/blog1.png",
+    image: "/images/blog/blog1.jpg",
     link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
   },
   {
     id: 2,
     date: "Aug 28, 2025",
     title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-    image: "/images/blog2.png",
+    image: "/images/blog/blog2.png",
     link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
   },
   {
     id: 3,
     date: "Aug 15, 2025",
     title: "The Ultimate Guide to Mastering GSAP Animations",
-    image: "/images/blog3.png",
+    image: "/images/blog/blog3.jpg",
     link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
   },
+  {
+    id: 4,
+    date: "Jul 30, 2025",
+    title: "How JavaScript Works Behind the Scenes: Call Stack, Event Loop & Web APIs",
+    image: "/images/blog/blog4.png",
+    link: "/blogs/javascript-behind-the-scenes",
+  },
+  {
+    id: 5,
+    date: "Jul 12, 2025",
+    title: "Node.js Backend Architecture: From Simple API to Scalable System",
+    image: "/images/blog/blog5.png",
+    link: "/blogs/nodejs-backend-architecture",
+  },
+  {
+    id: 6,
+    date: "Jun 25, 2025",
+    title: "REST vs GraphQL: Choosing the Right API Design for Your Backend",
+    image: "/images/blog/blog6.png",
+    link: "/blogs/rest-vs-graphql",
+  },
+  {
+    id: 7,
+    date: "Jun 10, 2025",
+    title: "MongoDB Data Modeling: Common Mistakes and Best Practices",
+    image: "/images/blog/blog7.png",
+    link: "/blogs/mongodb-data-modeling",
+  },
+  {
+    id: 8,
+    date: "May 22, 2025",
+    title: "DSA for Developers: How Much Is Enough to Crack Tech Interviews?",
+    image: "/images/blog/blog8.png",
+    link: "/blogs/dsa-for-developers",
+  },
+  {
+    id: 9,
+    date: "May 5, 2025",
+    title: "Authentication in Web Apps: JWT, Sessions, OAuth Explained Simply",
+    image: "/images/blog/blog9.png",
+    link: "/blogs/web-authentication-explained",
+  },
+  {
+    id: 10,
+    date: "Apr 18, 2025",
+    title: "From Developer to Problem Solver: Thinking Beyond Frameworks",
+    image: "/images/blog/blog10.png",
+    link: "/blogs/thinking-beyond-frameworks",
+  },
 ];
+
 
 const techStack = [
   {
@@ -252,7 +306,15 @@ const gallery = [
   },
   {
     id: 11,
-    img: "/gallery/10.jpg",
+    img: "/gallery/10.jpeg",
+  },
+  {
+    id: 13,
+    img: "/gallery/11.jpg",
+  },
+  {
+    id: 12,
+    img: "/gallery/3385760854646721185.mp4",
   },
 ];
 
@@ -328,8 +390,8 @@ const WORK_LOCATION = {
       name: " Ecommerce Website Application",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-20 left-40", // icon position inside Finder
-      windowPosition: "top-[5vh] left-25", // optional: Finder window position
+      position: "top-20 left-40", 
+      windowPosition: "top-[5vh] left-25",
       children: [
         {
           id: 1,
@@ -619,7 +681,11 @@ const WINDOW_CONFIG = {
   music: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
   gallery: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
   map: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
-  Trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  wifi: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  search: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  user: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
+  setting: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null, baseWindow },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
